@@ -25,9 +25,20 @@ test('constructor', assert => {
 });
 
 test('serialize', assert => {
-  assert.equal(form1.getInputs().length, 1, 'Finds inputs');
+  assert.equal(form1.getInputs().length, 10, 'Finds inputs');
   assert.deepEqual(form1.getJSON(), {
-    test1: 'test'
+    test1: 'test',
+    arraylike: [
+      'val1',
+      'val2'
+    ],
+    checkbox: [true, false],
+    gender: 'female',
+    color: 'green',
+    sizes: [
+      'small',
+      'medium'
+    ]
   }, 'JSON output');
 
   assert.end();

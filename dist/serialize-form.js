@@ -45,7 +45,60 @@ var SerializeForm = function () {
         for (var _iterator = this.getInputs()[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
           var input = _step.value;
 
-          output[input.getAttribute('name')] = input.value;
+          var name = input.getAttribute('name');
+          var value = void 0;
+
+          if (input.type === 'checkbox') {
+            value = input.checked;
+          } else if (input.type === 'radio') {
+            if (input.checked) {
+              value = input.value;
+            } else {
+              continue;
+            }
+          } else if (input.tagName === 'SELECT' && input.multiple) {
+            value = [];
+
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+              for (var _iterator2 = input.options[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                var option = _step2.value;
+
+                if (option.selected) {
+                  value.push(option.value);
+                }
+              }
+            } catch (err) {
+              _didIteratorError2 = true;
+              _iteratorError2 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                  _iterator2.return();
+                }
+              } finally {
+                if (_didIteratorError2) {
+                  throw _iteratorError2;
+                }
+              }
+            }
+          } else {
+            value = input.value;
+          }
+
+          // Radio will have multiple matching `name` attributes and we don't want them all.
+          if (typeof output[name] !== 'undefined' && input.type !== 'radio') {
+            if (Array.isArray(output[name])) {
+              output[name].push(value);
+            } else {
+              output[name] = [output[name], value];
+            }
+          } else {
+            output[name] = value;
+          }
         }
       } catch (err) {
         _didIteratorError = true;
