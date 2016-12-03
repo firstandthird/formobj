@@ -1,16 +1,16 @@
 {
-  "name": "serialize-form",
-  "version": "1.0.0",
+  "name": "formobj",
+  "version": "1.1.0",
   "description": "Turns form values into json",
-  "main": "lib/serialize-form.js",
+  "main": "dist/formobj.js",
   "keywords": [
     "browser",
     "form",
     "json"
   ],
   "scripts": {
-    "build": "browserify lib/serialize-form.js -t [ babelify --presets [ es2015 ] ] -o dist/serialize-form.js -s SerializeForm",
-    "build:test": "browserify test/serialize-form.test.js -t [ babelify --presets [ es2015 ] ] -o test/dist/test.js",
+    "build": "browserify lib/formobj.js -t [ babelify --presets [ es2015 ] ] -o dist/formobj.js -s SerializeForm",
+    "build:test": "browserify test/formobj.test.js -t [ babelify --presets [ es2015 ] ] -o test/dist/test.js",
     "dev": "concurrently -r 'nswatch' 'static-server -p 8000'",
     "lint": "eslint . --ignore-pattern dist"
   },
@@ -27,14 +27,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/firstandthird/serialize-form.git"
+    "url": "git+https://github.com/firstandthird/formobj.git"
   },
   "author": "First+Third",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/firstandthird/serialize-form/issues"
+    "url": "https://github.com/firstandthird/formobj/issues"
   },
-  "homepage": "https://github.com/firstandthird/serialize-form#readme",
+  "homepage": "https://github.com/firstandthird/formobj#readme",
   "dependencies": {},
   "eslintConfig": {
     "env": {

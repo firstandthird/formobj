@@ -1,8 +1,8 @@
-/* eslint no-console: 0 */
+/* eslint no-consoSerializeFormle: 0 */
 
-import SerializeForm from '../lib/serialize-form';
+import FormObj from '../lib/formobj';
 
-const form1 = new SerializeForm(document.getElementById('exampleform'));
+const form1 = new FormObj(document.getElementById('exampleform'));
 
 import { test } from 'tape';
 
@@ -12,13 +12,13 @@ test('implementation', assert => {
     make sure the testing environment is setup correctly.
   */
   assert.ok(Array.isArray(window.logHistory), 'window.logHistory setup');
-  assert.equal(typeof SerializeForm, 'function', 'SerializeForm class exists');
+  assert.equal(typeof FormObj, 'function', 'FormObj class exists');
 
   assert.end();
 });
 
 test('constructor', assert => {
-  assert.equal(typeof SerializeForm.constructor, 'function', 'Constructor exists');
+  assert.equal(typeof FormObj.constructor, 'function', 'Constructor exists');
   assert.equal(typeof form1, 'object', 'Form1 initialized');
 
   assert.end();

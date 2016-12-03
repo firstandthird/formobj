@@ -9,11 +9,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var SerializeForm = function () {
-  function SerializeForm(form) {
+var FormObj = function () {
+  function FormObj(form) {
     var selector = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '[name]';
 
-    _classCallCheck(this, SerializeForm);
+    _classCallCheck(this, FormObj);
 
     if (!form || !form.tagName || form.tagName !== 'FORM') {
       throw new Error('Must pass in a form element');
@@ -27,7 +27,7 @@ var SerializeForm = function () {
     this.selector = selector;
   }
 
-  _createClass(SerializeForm, [{
+  _createClass(FormObj, [{
     key: 'getInputs',
     value: function getInputs() {
       return this.form.querySelectorAll(this.selector);
@@ -119,10 +119,10 @@ var SerializeForm = function () {
     }
   }]);
 
-  return SerializeForm;
+  return FormObj;
 }();
 
-exports.default = SerializeForm;
+exports.default = FormObj;
 
 },{}]},{},[1])(1)
 });

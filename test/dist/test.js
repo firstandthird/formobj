@@ -9,11 +9,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var SerializeForm = function () {
-  function SerializeForm(form) {
+var FormObj = function () {
+  function FormObj(form) {
     var selector = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '[name]';
 
-    _classCallCheck(this, SerializeForm);
+    _classCallCheck(this, FormObj);
 
     if (!form || !form.tagName || form.tagName !== 'FORM') {
       throw new Error('Must pass in a form element');
@@ -27,7 +27,7 @@ var SerializeForm = function () {
     this.selector = selector;
   }
 
-  _createClass(SerializeForm, [{
+  _createClass(FormObj, [{
     key: 'getInputs',
     value: function getInputs() {
       return this.form.querySelectorAll(this.selector);
@@ -119,10 +119,10 @@ var SerializeForm = function () {
     }
   }]);
 
-  return SerializeForm;
+  return FormObj;
 }();
 
-exports.default = SerializeForm;
+exports.default = FormObj;
 
 },{}],2:[function(require,module,exports){
 'use strict'
@@ -7479,17 +7479,17 @@ function config (name) {
 },{}],62:[function(require,module,exports){
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /* eslint no-console: 0 */
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /* eslint no-consoSerializeFormle: 0 */
 
-var _serializeForm = require('../lib/serialize-form');
+var _formobj = require('../lib/formobj');
 
-var _serializeForm2 = _interopRequireDefault(_serializeForm);
+var _formobj2 = _interopRequireDefault(_formobj);
 
 var _tape = require('tape');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var form1 = new _serializeForm2.default(document.getElementById('exampleform'));
+var form1 = new _formobj2.default(document.getElementById('exampleform'));
 
 (0, _tape.test)('implementation', function (assert) {
   /*
@@ -7497,13 +7497,13 @@ var form1 = new _serializeForm2.default(document.getElementById('exampleform'));
     make sure the testing environment is setup correctly.
   */
   assert.ok(Array.isArray(window.logHistory), 'window.logHistory setup');
-  assert.equal(typeof _serializeForm2.default === 'undefined' ? 'undefined' : _typeof(_serializeForm2.default), 'function', 'SerializeForm class exists');
+  assert.equal(typeof _formobj2.default === 'undefined' ? 'undefined' : _typeof(_formobj2.default), 'function', 'FormObj class exists');
 
   assert.end();
 });
 
 (0, _tape.test)('constructor', function (assert) {
-  assert.equal(_typeof(_serializeForm2.default.constructor), 'function', 'Constructor exists');
+  assert.equal(_typeof(_formobj2.default.constructor), 'function', 'Constructor exists');
   assert.equal(typeof form1 === 'undefined' ? 'undefined' : _typeof(form1), 'object', 'Form1 initialized');
 
   assert.end();
@@ -7523,4 +7523,4 @@ var form1 = new _serializeForm2.default(document.getElementById('exampleform'));
   assert.end();
 });
 
-},{"../lib/serialize-form":1,"tape":56}]},{},[62]);
+},{"../lib/formobj":1,"tape":56}]},{},[62]);
