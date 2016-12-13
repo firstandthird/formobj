@@ -117,6 +117,92 @@ var FormObj = function () {
 
       return output;
     }
+  }, {
+    key: 'deserialize',
+    value: function deserialize(data) {
+      var index = {};
+
+      var _iteratorNormalCompletion3 = true;
+      var _didIteratorError3 = false;
+      var _iteratorError3 = undefined;
+
+      try {
+        for (var _iterator3 = this.getInputs()[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+          var input = _step3.value;
+
+          var name = input.getAttribute('name');
+          var val = data[name];
+
+          if (typeof index[name] === 'undefined') {
+            index[name] = 0;
+          } else {
+            index[name] = index[name] + 1;
+          }
+
+          if (Array.isArray(val) && input.tagName !== 'SELECT' && !input.multiple) {
+            val = val[index[name]];
+          }
+
+          if (typeof val === 'undefined') {
+            continue;
+          }
+
+          if (input.type === 'checkbox' && val === true) {
+            input.checked = true;
+          } else if (input.type === 'radio' && input.value === val) {
+            input.checked = true;
+          } else if (input.tagName === 'SELECT') {
+            var v = val;
+
+            if (!Array.isArray(val)) {
+              v = [val];
+            }
+
+            var _iteratorNormalCompletion4 = true;
+            var _didIteratorError4 = false;
+            var _iteratorError4 = undefined;
+
+            try {
+              for (var _iterator4 = input.options[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+                var option = _step4.value;
+
+                if (v.indexOf(option.value) !== -1) {
+                  option.selected = true;
+                }
+              }
+            } catch (err) {
+              _didIteratorError4 = true;
+              _iteratorError4 = err;
+            } finally {
+              try {
+                if (!_iteratorNormalCompletion4 && _iterator4.return) {
+                  _iterator4.return();
+                }
+              } finally {
+                if (_didIteratorError4) {
+                  throw _iteratorError4;
+                }
+              }
+            }
+          } else {
+            input.value = val;
+          }
+        }
+      } catch (err) {
+        _didIteratorError3 = true;
+        _iteratorError3 = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion3 && _iterator3.return) {
+            _iterator3.return();
+          }
+        } finally {
+          if (_didIteratorError3) {
+            throw _iteratorError3;
+          }
+        }
+      }
+    }
   }]);
 
   return FormObj;
