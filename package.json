@@ -12,7 +12,8 @@
     "build": "browserify lib/formobj.js -t [ babelify --presets [ es2015 ] ] -o dist/formobj.js -s SerializeForm",
     "build:test": "browserify test/formobj.test.js -t [ babelify --presets [ es2015 ] ] -o test/dist/test.js",
     "dev": "concurrently -r 'nswatch' 'static-server -p 8000'",
-    "lint": "eslint . --ignore-pattern dist"
+    "lint": "eslint . --ignore-pattern dist",
+    "prepublish": "npm run build"
   },
   "watch": {
     "lib/*.js": [
@@ -53,5 +54,10 @@
     "nswatch": "^0.2.0",
     "static-server": "^2.0.3",
     "tape": "^4.6.2"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   }
 }

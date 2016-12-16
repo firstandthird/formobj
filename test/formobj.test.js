@@ -3,6 +3,7 @@
 import FormObj from '../lib/formobj';
 
 const form1 = new FormObj(document.getElementById('exampleform'));
+const form2 = new FormObj(document.getElementById('exampleform2'));
 
 import { test } from 'tape';
 
@@ -27,6 +28,29 @@ test('constructor', assert => {
 test('serialize', assert => {
   assert.equal(form1.getInputs().length, 10, 'Finds inputs');
   assert.deepEqual(form1.getJSON(), {
+    test1: 'test',
+    arraylike: [
+      'val1',
+      'val2'
+    ],
+    checkbox: [true, false],
+    gender: 'female',
+    color: 'green',
+    sizes: [
+      'small',
+      'medium'
+    ]
+  }, 'JSON output');
+
+  assert.end();
+});
+
+test('serialize', assert => {
+  const json = form1.getJSON();
+
+  form2.deserialize(json);
+
+  assert.deepEqual(form2.getJSON(), {
     test1: 'test',
     arraylike: [
       'val1',
