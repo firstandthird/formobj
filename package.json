@@ -1,7 +1,7 @@
 {
   "name": "formobj",
-  "version": "1.2.0",
-  "description": "Turns form values into json",
+  "version": "2.0.0",
+  "description": "Turns form values into json and back into form values",
   "main": "dist/formobj.js",
   "keywords": [
     "browser",
