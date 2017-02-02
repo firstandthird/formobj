@@ -1,11 +1,11 @@
 /* eslint no-consoSerializeFormle: 0 */
 
-import FormObj from '../lib/formobj';
+import formObj from '../formobj';
 
-const form1 = new FormObj(document.getElementById('exampleform'));
-const form2 = new FormObj(document.getElementById('exampleform2'));
+const form1 = formObj(document.getElementById('exampleform'));
+const form2 = formObj(document.getElementById('exampleform2'));
 
-import { test } from 'tape';
+import test from 'tape-rollup';
 
 test('implementation', assert => {
   /*
@@ -13,14 +13,7 @@ test('implementation', assert => {
     make sure the testing environment is setup correctly.
   */
   assert.ok(Array.isArray(window.logHistory), 'window.logHistory setup');
-  assert.equal(typeof FormObj, 'function', 'FormObj class exists');
-
-  assert.end();
-});
-
-test('constructor', assert => {
-  assert.equal(typeof FormObj.constructor, 'function', 'Constructor exists');
-  assert.equal(typeof form1, 'object', 'Form1 initialized');
+  assert.equal(typeof formObj, 'function', 'FormObj class exists');
 
   assert.end();
 });

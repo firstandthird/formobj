@@ -9,22 +9,11 @@
     "json"
   ],
   "scripts": {
-    "build": "browserify lib/formobj.js -t [ babelify --presets [ es2015 ] ] -o dist/formobj.js -s SerializeForm",
-    "build:test": "browserify test/formobj.test.js -t [ babelify --presets [ es2015 ] ] -o test/dist/test.js",
-    "dev": "concurrently -r 'nswatch' 'static-server -p 8000'",
-    "lint": "eslint . --ignore-pattern dist",
-    "prepublish": "npm run build"
-  },
-  "watch": {
-    "lib/*.js": [
-      "lint",
-      "build",
-      "build:test"
-    ],
-    "test/*.js": [
-      "lint",
-      "build:test"
-    ]
+    "build": "scriptkit build",
+    "dev": "scriptkit dev",
+    "pretest": "scriptkit",
+    "test": "cat test/formobj.test.dist.js | tape-run --browser phantomjs --render tap-spec",
+    "prepublish": "scriptkit"
   },
   "repository": {
     "type": "git",
@@ -36,28 +25,36 @@
     "url": "https://github.com/firstandthird/formobj/issues"
   },
   "homepage": "https://github.com/firstandthird/formobj#readme",
-  "dependencies": {},
+  "dependencies": {
+    "domassist": "^1.3.3"
+  },
   "eslintConfig": {
     "env": {
       "browser": true
     },
     "extends": "firstandthird"
   },
-  "devDependencies": {
-    "babel-preset-es2015": "^6.6.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
-    "concurrently": "^3.1.0",
-    "eslint": "^3.4.0",
-    "eslint-config-firstandthird": "^3.0.2",
-    "eslint-plugin-import": "^2.2.0",
-    "nswatch": "^0.2.0",
-    "static-server": "^2.0.3",
-    "tape": "^4.6.2"
+  "scriptkit": {
+    "scripts": {
+      "babel": {
+        "exclude": [
+          "node_modules/tape-rollup/*"
+        ]
+      },
+      "files": {
+        "dist/formobj.js": "formobj.js",
+        "test/formobj.test.dist.js": "test/formobj.test.js"
+      }
+    }
   },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
+  "devDependencies": {
+    "eslint-config-firstandthird": "^3.1.0",
+    "eslint-plugin-import": "^2.1.0",
+    "phantomjs": "^2.1.7",
+    "scriptkit": "0.0.19",
+    "static-server": "^2.0.3",
+    "tap-spec": "^4.1.1",
+    "tape-rollup": "4.6.4",
+    "tape-run": "^2.1.5"
   }
 }
