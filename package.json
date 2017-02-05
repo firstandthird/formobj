@@ -11,7 +11,6 @@
   "scripts": {
     "build": "scriptkit build",
     "dev": "scriptkit dev",
-    "pretest": "scriptkit",
     "test": "cat test/formobj.test.dist.js | tape-run --browser phantomjs --render tap-spec",
     "prepublish": "scriptkit"
   },
@@ -26,7 +25,7 @@
   },
   "homepage": "https://github.com/firstandthird/formobj#readme",
   "dependencies": {
-    "domassist": "^1.3.3"
+    "domassist": "^1.4.1"
   },
   "eslintConfig": {
     "env": {
@@ -34,6 +33,7 @@
     },
     "extends": "firstandthird"
   },
+  "module": "formobj.js",
   "scriptkit": {
     "scripts": {
       "babel": {
@@ -48,11 +48,11 @@
     }
   },
   "devDependencies": {
-    "eslint-config-firstandthird": "^3.1.0",
-    "eslint-plugin-import": "^2.1.0",
+    "eslint-config-firstandthird": "^3.2.0",
+    "eslint-plugin-import": "^2.2.0",
     "phantomjs": "^2.1.7",
-    "scriptkit": "0.0.19",
-    "static-server": "^2.0.3",
+    "scriptkit": "0.0.22",
+    "static-server": "^2.0.4",
     "tap-spec": "^4.1.1",
     "tape-rollup": "4.6.4",
     "tape-run": "^2.1.5"
