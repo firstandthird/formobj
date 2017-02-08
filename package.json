@@ -1,6 +1,6 @@
 {
   "name": "formobj",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Turns form values into json and back into form values",
   "main": "dist/formobj.js",
   "keywords": [
@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/firstandthird/formobj#readme",
   "dependencies": {
-    "domassist": "^1.4.1"
+    "domassist": "^1.5.0"
   },
   "eslintConfig": {
     "env": {
@@ -55,6 +55,6 @@
     "static-server": "^2.0.4",
     "tap-spec": "^4.1.1",
     "tape-rollup": "4.6.4",
-    "tape-run": "^2.1.5"
+    "tape-run": "^2.1.6"
   }
 }
