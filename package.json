@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/firstandthird/formobj#readme",
   "dependencies": {
-    "domassist": "^1.5.0"
+    "domassist": "^1.7.1"
   },
   "eslintConfig": {
     "env": {
