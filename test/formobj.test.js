@@ -130,6 +130,11 @@ test('serialize', assert => {
     ]
   }, 'JSON output');
 
+  const radios = document.querySelectorAll('#exampleform2 [type="radio"]');
+  assert.equal(radios[0].getAttribute('value'), 'male', 'Radio value preserved');
+  assert.equal(radios[1].getAttribute('value'), 'female', 'Radio value preserved');
+  assert.equal(radios[2].getAttribute('value'), 'other', 'Radio value preserved');
+
   assert.end();
 });
 
