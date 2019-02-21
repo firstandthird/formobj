@@ -2,7 +2,8 @@
   "name": "formobj",
   "version": "4.0.1",
   "description": "Turns form values into json and back into form values",
-  "main": "dist/formobj.js",
+  "main": "formobj.js",
+  "module": "dist/formobj.esm.js",
   "keywords": [
     "browser",
     "form",
@@ -12,7 +13,7 @@
     "build": "scriptkit build",
     "dev": "scriptkit dev",
     "test": "cat test/formobj.test.dist.js | tape-run --browser phantomjs --render tap-spec",
-    "prepublish": "scriptkit"
+    "prepublishOnly": "scriptkit"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,7 @@
   },
   "homepage": "https://github.com/firstandthird/formobj#readme",
   "dependencies": {
-    "domassist": "^1.7.1"
+    "domassist": "^2.0.1"
   },
   "eslintConfig": {
     "env": {
@@ -33,28 +34,27 @@
     },
     "extends": "firstandthird"
   },
-  "module": "formobj.js",
   "scriptkit": {
+    "files": {
+      "dist/formobj.js": "formobj.js",
+      "test/formobj.test.dist.js": "test/formobj.test.js"
+    },
     "scripts": {
       "babel": {
         "exclude": [
           "node_modules/tape-rollup/*"
         ]
-      },
-      "files": {
-        "dist/formobj.js": "formobj.js",
-        "test/formobj.test.dist.js": "test/formobj.test.js"
       }
     }
   },
   "devDependencies": {
-    "eslint-config-firstandthird": "^4.2.0",
-    "eslint-plugin-import": "^2.2.0",
-    "phantomjs-prebuilt": "^2.1.14",
-    "scriptkit": "0.0.22",
-    "static-server": "^3.0.0",
-    "tap-spec": "^4.1.1",
+    "eslint-config-firstandthird": "^4.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "phantomjs-prebuilt": "^2.1.16",
+    "scriptkit": "2.0.0",
+    "static-server": "^2.2.1",
+    "tap-spec": "^5.0.0",
     "tape-rollup": "4.6.4",
-    "tape-run": "^3.0.3"
+    "tape-run": "^5.0.0"
   }
 }
