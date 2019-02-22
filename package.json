@@ -51,10 +51,10 @@
     "eslint-config-firstandthird": "^4.3.0",
     "eslint-plugin-import": "^2.16.0",
     "phantomjs-prebuilt": "^2.1.16",
-    "scriptkit": "2.0.0",
+    "scriptkit": "^2.0.1",
     "static-server": "^2.2.1",
     "tap-spec": "^5.0.0",
-    "tape-rollup": "4.6.4",
+    "tape-rollup": "^4.6.4",
     "tape-run": "^5.0.0"
   }
 }

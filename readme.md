@@ -5,7 +5,7 @@ Converts form elements with a `name` attribute to JSON.
 ## Installation
 
 ```sh
-npm install --save formobj
+npm install formobj
 ```
 
 ## Usage
