@@ -2,7 +2,13 @@
 
 Converts form elements with a `name` attribute to JSON.
 
-Usage:
+## Installation
+
+```sh
+npm install formobj
+```
+
+## Usage
 
 ```html
 <form id="SuperAmazingForm">
@@ -25,7 +31,7 @@ const form = new FormObj(document.getElementById('SuperAmazingForm'));
 const data = form.getJSON();
 ```
 
-Outputs:
+## Outputs
 
 ```json
 {
