@@ -1,5 +1,7 @@
 # formobj
 
+![npm](https://img.shields.io/npm/v/formobj.svg)
+
 Converts form elements with a `name` attribute to JSON.
 
 ## Installation
