@@ -1,6 +1,4 @@
-# formobj
-
-![npm](https://img.shields.io/npm/v/formobj.svg)
+# formobj ![npm](https://img.shields.io/npm/v/formobj.svg) [![Build Status](https://travis-ci.org/firstandthird/formobj.svg?branch=master)](https://travis-ci.org/firstandthird/formobj)
 
 Converts form elements with a `name` attribute to JSON.
 
