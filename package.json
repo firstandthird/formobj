@@ -1,6 +1,6 @@
 {
   "name": "formobj",
-  "version": "5.0.0",
+  "version": "5.1.0",
   "description": "Turns form values into json and back into form values",
   "main": "formobj.js",
   "module": "dist/formobj.js",
